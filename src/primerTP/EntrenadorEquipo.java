@@ -3,7 +3,7 @@ package primerTP;
 class Equipo {
     private String NombreDeEquipo;
     private String Categoria;
-    private Entrenador Entrenador;   // Atributo que guarda el entrenador asignado
+    private Entrenador Entrenador;
 
     public Equipo(String NombreDeEquipo, String Categoria) {
         this.NombreDeEquipo = NombreDeEquipo;
@@ -11,12 +11,10 @@ class Equipo {
         this.Entrenador = null;
     }
 
-    // Getter del entrenador (no se usa en el main, pero lo dejamos)
     public Entrenador obtenerEntrenador() {
         return Entrenador;
     }
 
-    // Asignar entrenador (si no hay uno y el entrenador está libre)
     public void asignarEntrenador(Entrenador entrenador) {
         if (this.Entrenador == null) {
             if (!entrenador.getEstaOcupado()) {
@@ -30,7 +28,6 @@ class Equipo {
         }
     }
 
-    // Cambiar entrenador (si hay uno asignado y el nuevo está libre)
     public void cambiarEntrenador(Entrenador nuevoEntrenador) {
         if (this.Entrenador != null) {
             if (!nuevoEntrenador.getEstaOcupado()) {
@@ -59,7 +56,6 @@ class Equipo {
         System.out.println("-------------------------");
     }
 
-    // Clase interna ESTÁTICA (para poder instanciarla sin un Equipo)
     static class Entrenador {
         private String Dni;
         private String Nombre;
